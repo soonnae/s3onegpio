@@ -509,19 +509,19 @@ class ProfilerRun {
 
         window.parent.postMessage({
             type: 'BENCH_MESSAGE_LOADING'
-        }, '*');
+        }, 'https://trusted.origin.com');
 
         this.vm.on('workspaceUpdate', () => {
             setTimeout(() => {
                 window.parent.postMessage({
                     type: 'BENCH_MESSAGE_WARMING_UP'
-                }, '*');
+                }, 'https://trusted.origin.com');
                 this.vm.greenFlag();
             }, 100);
             setTimeout(() => {
                 window.parent.postMessage({
                     type: 'BENCH_MESSAGE_ACTIVE'
-                }, '*');
+                }, 'https://trusted.origin.com');
                 this.vm.runtime.profiler = this.profiler;
             }, 100 + this.warmUpTime);
             setTimeout(() => {
@@ -536,7 +536,7 @@ class ProfilerRun {
                     type: 'BENCH_MESSAGE_COMPLETE',
                     frames: this.frames.frames,
                     opcodes: this.opcodes.opcodes
-                }, '*');
+                }, 'https://trusted.origin.com');
 
                 setShareLink({
                     fixture: {
